@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umroh Eksklusif - Dreammecca</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#fff;
+  color:#182440;
+  text-align:center;
+}
+
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:20px;
+}
+
+h1{font-size:26px;}
+h2{font-size:22px;}
+p{font-size:14px;color:#4a5568}
+
+.btn{
+  display:block;
+  background:#182440;
+  color:#fff;
+  padding:16px;
+  margin-top:15px;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:600;
+}
+
+.card{
+  background:#F6F8FC;
+  padding:18px;
+  margin-top:20px;
+  border-radius:14px;
+  border:1px solid #E5E9F2;
+}
+
+.badge{
+  background:#182440;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  display:inline-block;
+  margin-bottom:10px;
+}
+
+.hero-img{
+  width:100%;
+  border-radius:18px;
+  margin-top:20px;
+}
+
+.list-box{
+  background:#fff;
+  padding:14px;
+  border-radius:10px;
+  margin-top:10px;
+  border:1px solid #E5E9F2;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  overflow: hidden;
+  margin-top:15px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius:12px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background:#182440;
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  opacity:0.7;
+}
+
+.nav:hover{opacity:1;}
+.prev{left:10px;}
+.next{right:10px;}
+
+.dots{margin-top:10px;}
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  background:#ccc;
+  border-radius:50%;
+  margin:4px;
+}
+.dot.active{background:#182440;}
+
+.price{
+  font-size:32px;
+  font-weight:700;
+}
+
+hr{
+  border:none;
+  border-top:1px solid #E5E9F2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="badge">Umroh Eksklusif · Zam Zam Tower</div>
+
+<h1>Fasilitas Terbaik di Zam Zam Tower</h1>
+
+<p>Menginap langsung di pelataran Masjidil Haram</p>
+<p>Selangkah ke Masjidil Haram, ibadah jadi lebih khusyuk</p>
+
+<img src="assets/images/jamaah2.jpg" class="hero-img">
+
+<div class="card">
+<p style="font-weight:600;">UMROH BERKELAS BERSAMA DREAMMECCA</p>
+<p>AMANKAN SEAT ANDA HARI INI</p>
+</div>
+
+<!-- CTA 1 (HERO) -->
+<a href="https://wa.me/6281225740093?text=%5BLP-ZAMZAM%5D%0AAssalamu'alaikum,%20saya%20tertarik%20dengan%20program%20Umroh%20Dreammecca%20dan%20ingin%20tahu%20detailnya" class="btn">
+Saya Tertarik Program Ini →
+</a>
+
+<p style="font-size:12px;color:#888;">Respon cepat · Tanpa biaya konsultasi</p>
+
+<!-- EMOTIONAL -->
+<div class="card">
+<h2>Banyak yang ingin umroh... tapi ragu</h2>
+
+<div class="list-box">Takut berangkat sendirian</div>
+<div class="list-box">Takut bingung saat ibadah</div>
+<div class="list-box">Takut kelelahan selama perjalanan</div>
+
+<p style="margin-top:15px;">
+Dreammecca hadir untuk memastikan ibadah lebih tenang dan terarah.
+</p>
+
+<!-- CTA 2 -->
+<a href="https://wa.me/6281225740093?text=%5BLP-ZAMZAM%5D%0AAssalamu'alaikum,%20saya%20masih%20ragu%20dan%20ingin%20konsultasi%20terkait%20program%20Umroh%20Dreammecca" class="btn">
+Konsultasi Dulu →
+</a>
+
+</div>
+
+<!-- SOLUSI -->
+<div class="card">
+<h2>Solusi Dreammecca</h2>
+<p>✔ Hotel Zam Zam Tower (dekat Masjidil Haram)</p>
+<p>✔ Pendamping ibadah berpengalaman</p>
+<p>✔ Perjalanan lebih nyaman & terarah</p>
+</div>
+
+<!-- TESTIMONI -->
+<div class="card">
+<h2>Apa Kata Jamaah?</h2>
+
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="assets/images/testi1.png">
+    <img src="assets/images/testi2.png">
+    <img src="assets/images/testi3.png">
+  </div>
+
+  <button class="nav prev" onclick="prevSlide()">❮</button>
+  <button class="nav next" onclick="nextSlide()">❯</button>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<!-- CTA 3 -->
+<a href="https://wa.me/6281225740093?text=%5BLP-ZAMZAM%5D%0AAssalamu'alaikum,%20saya%20ingin%20mengamankan%20seat%20Umroh%20Dreammecca" class="btn">
+Saya Mau Berangkat →
+</a>
+
+</div>
+
+<!-- PACKAGE -->
+<div class="card">
+<div class="badge">Paling Diminati</div>
+
+<h2>Umroh di Zam Zam Tower</h2>
+<div class="price">Mulai dari 37,9 juta</div>
+
+<p>Selangkah ke Masjidil Haram, Ibadah jadi lebih Khusyuk</p>
+
+<hr>
+
+<a href="https://wa.me/?text=%5BLP-ZAMZAM%5D%0AAssalamu'alaikum,%20saya%20siap%20booking%20program%20Umroh%20Dreammecca" class="btn">
+Amankan Seat Sekarang →
+</a>
+
+</div>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById('slides');
+const total = slides.children.length;
+const dotsContainer = document.getElementById('dots');
+let autoSlide;
+
+for(let i=0;i<total;i++){
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  dot.addEventListener('click', ()=>showSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+function updateDots(){
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach(d=>d.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function showSlide(i){
+  index = i;
+  if(index >= total) index = 0;
+  if(index < 0) index = total - 1;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateDots();
+}
+
+function nextSlide(){ showSlide(index + 1); }
+function prevSlide(){ showSlide(index - 1); }
+
+function startAuto(){
+  autoSlide = setInterval(nextSlide, 5000);
+}
+
+function stopAuto(){
+  clearInterval(autoSlide);
+}
+
+let startX = 0;
+
+slides.addEventListener('touchstart', e=>{
+  startX = e.touches[0].clientX;
+  stopAuto();
+});
+
+slides.addEventListener('touchend', e=>{
+  let endX = e.changedTouches[0].clientX;
+
+  if(startX - endX > 50){
+    nextSlide();
+  } else if(endX - startX > 50){
+    prevSlide();
+  }
+
+  startAuto();
+});
+
+showSlide(0);
+startAuto();
+</script>
+
+</body>
+</html>
