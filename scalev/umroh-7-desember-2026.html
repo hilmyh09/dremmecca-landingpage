@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>window.DM_CONFIG = {waNumber:"6281225740093", pixelId:"1918126445709240", deadline:"2026-11-02T23:59:59+07:00", tag:"LP-DES7"};</script>
+  <script>window.DM_CONFIG = {waNumbers:["6281225740093", "6282315848362"], pixelId:"1918126445709240", deadline:"2026-11-02T23:59:59+07:00", tag:"LP-DES7"};</script>
   <script>
     window.DM_PAGE = {
       title: "Umroh 7 Desember 2026 · 9 hari · Garuda Indonesia — Desember Lebih Hemat | Dreammecca",
@@ -219,7 +219,7 @@ p{margin:0}
 .footer{background:#12122a;color:rgba(255,255,255,.75);padding:48px 0 120px;font-size:14px}
 @media (min-width:960px){.footer{padding-bottom:48px}}
 .footer__grid{display:grid;gap:28px;grid-template-columns:1fr}
-@media (min-width:720px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr}}
+@media (min-width:720px){.footer__grid{grid-template-columns:1.6fr 1fr}}
 .footer__brand p{margin-top:14px;font-size:13px}
 .footer h4{color:#fff;font-size:14px;margin-bottom:12px}
 .footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13px}
@@ -512,15 +512,6 @@ p{margin:0}
             <li><a href="https://www.dreammecca.id" target="_blank" rel="noopener">www.dreammecca.id</a></li>
           </ul>
         </div>
-        <div>
-          <h4>Legalitas</h4>
-          <ul>
-            <li>PPIU resmi Kemenag RI</li>
-            <li>SK: 16112301081560002</li>
-            <li>Terdaftar Siskopatuh</li>
-            <li>5 Pasti Umrah</li>
-          </ul>
-        </div>
       </div>
       <div class="footer__legal">
         <span>*Periode booking 15 Oktober 2026 – 2 November 2026 · Diskon Rp4.000.000 sesuai ketentuan promo · DP Rp10.000.000/jamaah · Pelunasan paling lambat H-30 sebelum keberangkatan.</span>
@@ -543,18 +534,31 @@ p{margin:0}
 (function(){
   var CFG = window.DM_CONFIG || {};
   var PAGE = window.DM_PAGE || {};
-  var num = (CFG.waNumber || '').replace(/\D/g,'');
+  var nums = (CFG.waNumbers || []).map(function(n){ return String(n).replace(/\D/g,''); }).filter(Boolean);
+  var num = nums.length > 0;
   var tag = CFG.tag ? '['+CFG.tag+']\n' : '';
+  var KEY = 'dm_wa_idx';
 
-  function waUrl(text){
-    return 'https://wa.me/' + num + '?text=' + encodeURIComponent(tag + text);
+  /* Rolling CTWA: setiap klik bergantian ke nomor berikutnya (disimpan di localStorage) */
+  function readIdx(){ try { var v = parseInt(localStorage.getItem(KEY), 10); return isNaN(v) ? Math.floor(Math.random()*nums.length) : v; } catch(e){ return 0; } }
+  function nextNumber(){
+    var i = readIdx() % nums.length;
+    try { localStorage.setItem(KEY, String((i+1) % nums.length)); } catch(e){}
+    return nums[i];
   }
+  function waUrl(text, n){
+    return 'https://wa.me/' + (n || nums[readIdx() % nums.length]) + '?text=' + encodeURIComponent(tag + text);
+  }
+  var defaultText = PAGE.waText || 'Assalamu\'alaikum, saya mau tanya program umroh Dreammecca.';
 
   /* WhatsApp links */
   var links = document.querySelectorAll('[data-wa]');
   for (var i=0;i<links.length;i++){
-    if (num) links[i].setAttribute('href', waUrl(PAGE.waText || 'Assalamu\'alaikum, saya mau tanya program umroh Dreammecca.'));
-    links[i].addEventListener('click', function(){ if (window.fbq) fbq('track','Contact'); });
+    if (num) links[i].setAttribute('href', waUrl(defaultText));
+    links[i].addEventListener('click', function(){
+      if (num) this.setAttribute('href', waUrl(defaultText, nextNumber()));
+      if (window.fbq) fbq('track','Contact');
+    });
   }
   var warn = document.getElementById('wa-warning');
   if (warn && !num) warn.classList.remove('is-hidden');
@@ -573,7 +577,7 @@ p{margin:0}
                 (pax ? '\nJumlah jamaah: ' + pax : '') +
                 '\nTipe kamar: ' + (kamar || 'belum tahu, minta saran');
       if (window.fbq) fbq('track','Lead');
-      if (num) window.open(waUrl(msg), '_blank'); else if (warn) warn.classList.remove('is-hidden');
+      if (num) window.open(waUrl(msg, nextNumber()), '_blank'); else if (warn) warn.classList.remove('is-hidden');
     });
   }
 
