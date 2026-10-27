@@ -1,431 +1,412 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JadiUmrah - Wujudkan Umroh Pertamamu</title>
-<meta name="description" content="JadiUmrah membantu kamu berangkat umroh dengan tenang: pendampingan dari awal sampai pulang, hotel dekat Masjidil Haram, dan pembimbing berpengalaman.">
-<meta property="og:title" content="JadiUmrah - Wujudkan Umroh Pertamamu">
-<meta property="og:description" content="Berangkat umroh tanpa bingung. Konsultasi gratis via WhatsApp.">
-<meta property="og:image" content="assets/images/hero.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadiumrah - Berumrah Lebih Tenang dengan Pendampingan Lebih Personal</title>
+  <meta name="description" content="Jadiumrah: bukan sekadar berangkat bersama, tetapi berumrah dengan pendampingan yang lebih personal. Grup ideal maksimal 29 jamaah agar setiap kebutuhan diperhatikan.">
+  <meta property="og:title" content="Jadiumrah - Pendampingan Umrah Lebih Personal">
+  <meta property="og:description" content="Keberangkatan ideal maksimal 29 jamaah. Setiap tahapan ibadah menjadi lebih terarah.">
+  <meta property="og:type" content="website">
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src='https://connect.facebook.net/en_US/fbevents.js';
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1918126445709240'); /* TODO: ganti kalau JadiUmrah pakai Pixel sendiri */
-fbq('track', 'PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1918126445709240&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Design tokens: white dominant, #586d4d accent, charcoal text
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              DEFAULT: '#586d4d',
+              dark: '#475a3e',
+              light: '#eef2ec',
+            },
+            charcoal: '#2b2f2c',
+          },
+        },
+      },
+    };
+  </script>
 
-<style>
-:root{
-  --green:#0F4C3A;
-  --green-dark:#0B3A2C;
-  --gold:#C9A227;
-  --gold-light:#F7EFD2;
-  --ink:#1B2A24;
-  --muted:#5B6B64;
-  --bg:#F5F8F6;
-  --line:#E2EAE6;
-}
+  <!-- Meta Pixel (opsional). TODO: ganti ID kalau Jadiumrah pakai Pixel sendiri, atau hapus blok ini. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1918126445709240');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1918126445709240&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:#fff;
-  color:var(--ink);
-  text-align:center;
-  padding-bottom:84px; /* ruang untuk tombol sticky */
-}
-
-.container{
-  max-width:500px;
-  margin:auto;
-  padding:20px;
-}
-
-h1{font-size:26px;line-height:1.3;margin:12px 0}
-h2{font-size:20px;line-height:1.35;margin:0 0 12px}
-p{font-size:14px;color:var(--muted);line-height:1.6;margin:8px 0}
-
-.brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  font-weight:700;
-  font-size:18px;
-  color:var(--green);
-  margin-bottom:6px;
-}
-.brand span{color:var(--gold)}
-
-.badge{
-  background:var(--gold-light);
-  color:var(--green);
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:600;
-  display:inline-block;
-  margin-bottom:10px;
-}
-
-.btn{
-  display:block;
-  background:var(--green);
-  color:#fff;
-  padding:16px;
-  margin-top:15px;
-  text-decoration:none;
-  border-radius:12px;
-  font-weight:600;
-  font-size:15px;
-  box-shadow:0 6px 18px rgba(15,76,58,.25);
-  transition:transform .15s ease, background .15s ease;
-}
-.btn:active{transform:scale(.98)}
-.btn:hover{background:var(--green-dark)}
-.btn.gold{background:var(--gold);color:var(--ink);box-shadow:0 6px 18px rgba(201,162,39,.3)}
-.btn.gold:hover{background:#b8921f}
-
-.note{font-size:12px;color:#8A9690;margin-top:8px}
-
-.hero-img{
-  width:100%;
-  border-radius:18px;
-  margin-top:20px;
-  display:block;
-  aspect-ratio:4/3;
-  object-fit:cover;
-}
-
-.card{
-  background:var(--bg);
-  padding:20px 18px;
-  margin-top:20px;
-  border-radius:16px;
-  border:1px solid var(--line);
-}
-
-.list-box{
-  background:#fff;
-  padding:14px;
-  border-radius:10px;
-  margin-top:10px;
-  border:1px solid var(--line);
-  font-size:14px;
-  text-align:left;
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-}
-.list-box .ic{flex:0 0 auto;font-size:16px}
-
-.steps{counter-reset:step;text-align:left}
-.step{
-  position:relative;
-  padding:12px 12px 12px 52px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px;
-  margin-top:10px;
-  font-size:14px;
-}
-.step::before{
-  counter-increment:step;
-  content:counter(step);
-  position:absolute;
-  left:12px;top:50%;
-  transform:translateY(-50%);
-  width:30px;height:30px;
-  border-radius:50%;
-  background:var(--green);
-  color:#fff;
-  font-weight:600;
-  display:flex;align-items:center;justify-content:center;
-}
-.step b{display:block;color:var(--ink)}
-.step small{color:var(--muted)}
-
-.stats{display:flex;gap:10px;margin-top:16px}
-.stat{flex:1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 6px}
-.stat b{display:block;font-size:20px;color:var(--green)}
-.stat small{font-size:11px;color:var(--muted)}
-
-/* SLIDER */
-.slider{position:relative;overflow:hidden;margin-top:15px;border-radius:12px}
-.slides{display:flex;transition:transform .5s ease}
-.slides img{width:100%;flex-shrink:0;border-radius:12px;display:block}
-.nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:var(--green);color:#fff;border:none;
-  width:36px;height:36px;border-radius:50%;cursor:pointer;opacity:.75;
-  font-size:14px;
-}
-.nav:hover{opacity:1}
-.prev{left:10px}
-.next{right:10px}
-.dots{margin-top:10px}
-.dot{display:inline-block;width:8px;height:8px;background:#ccd6d1;border-radius:50%;margin:4px;cursor:pointer}
-.dot.active{background:var(--green)}
-
-/* PACKAGE */
-.package{
-  background:linear-gradient(160deg,var(--green) 0%,var(--green-dark) 100%);
-  color:#fff;
-  border:none;
-}
-.package h2,.package p{color:#fff}
-.package p{opacity:.9}
-.package .badge{background:var(--gold);color:var(--ink)}
-.price{font-size:30px;font-weight:700;color:var(--gold);line-height:1.2}
-.price small{display:block;font-size:12px;font-weight:400;color:#fff;opacity:.85}
-.package hr{border:none;border-top:1px solid rgba(255,255,255,.2);margin:16px 0}
-.package .inc{text-align:left;font-size:13px;margin-top:6px}
-.package .inc div{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.15)}
-.package .inc div:last-child{border:none}
-
-/* FAQ */
-details{
-  background:#fff;border:1px solid var(--line);border-radius:10px;
-  margin-top:10px;text-align:left;padding:0 14px;
-}
-summary{cursor:pointer;font-weight:500;font-size:14px;padding:12px 0;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";float:right;color:var(--green);font-weight:700}
-details[open] summary::after{content:"–"}
-details p{padding-bottom:12px;margin:0}
-
-footer{font-size:11px;color:#8A9690;margin-top:30px}
-
-/* STICKY CTA */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;
-  background:#fff;border-top:1px solid var(--line);
-  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  z-index:50;
-}
-.sticky .btn{margin:0 auto;max-width:468px;padding:14px}
-</style>
+  <style>
+    /* Small refinements beyond Tailwind utilities */
+    html { -webkit-font-smoothing: antialiased; }
+    .focus-ring:focus-visible { outline: 2px solid #586d4d; outline-offset: 3px; }
+  </style>
 </head>
 
-<body>
+<body class="bg-white text-charcoal font-sans antialiased">
 
-<div class="container">
+  <!-- ============================================================
+       HEADER / NAVBAR
+       ============================================================ -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo placeholder -->
+        <a href="#" class="flex items-center gap-2 focus-ring rounded-md" aria-label="Jadiumrah - Beranda">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-white font-bold text-sm">J</span>
+          <span class="text-lg font-bold tracking-tight text-charcoal">Jadi<span class="text-brand">umrah</span></span>
+        </a>
 
-<!-- HERO -->
-<div class="brand">Jadi<span>Umrah</span></div>
-<div class="badge">Umroh Terbimbing · Tanpa Bingung</div>
+        <!-- Nav CTA -->
+        <a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20program%20umrah%20Jadiumrah"
+           target="_blank" rel="noopener"
+           onclick="track('Contact','navbar')"
+           class="focus-ring inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.2Z"/></svg>
+          Hubungi Kami
+        </a>
+      </div>
+    </div>
+  </header>
 
-<h1>Wujudkan Umroh Pertamamu, Tanpa Rasa Takut &amp; Bingung</h1>
+  <main>
 
-<p>Dari persiapan dokumen sampai pulang ke tanah air, kamu didampingi penuh oleh tim JadiUmrah.</p>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
 
-<img src="assets/images/hero.jpg" class="hero-img" alt="Jamaah JadiUmrah di depan Masjidil Haram">
+          <!-- Copy -->
+          <div class="text-center lg:text-left">
+            <p class="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand-light px-3 py-1 text-xs font-semibold text-brand">
+              <span class="h-1.5 w-1.5 rounded-full bg-brand"></span>
+              Grup ideal 25 jamaah · maksimal 29
+            </p>
 
-<!-- CTA 1 (HERO) -->
-<a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20tertarik%20program%20JadiUmrah%20dan%20ingin%20tahu%20detailnya" class="btn" onclick="track('Lead','hero')">
-Saya Mau Umroh →
-</a>
-<p class="note">Respon cepat · Konsultasi gratis via WhatsApp</p>
+            <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-charcoal sm:text-5xl">
+              Berumrah Lebih Tenang dengan Pendampingan Lebih&nbsp;Personal.
+            </h1>
 
-<div class="stats">
-  <div class="stat"><b>24/7</b><small>Pendampingan</small></div>
-  <div class="stat"><b>±200m</b><small>ke Masjidil Haram</small></div>
-  <div class="stat"><b>1:1</b><small>Bimbingan manasik</small></div>
-</div>
+            <p class="mt-5 text-lg leading-relaxed text-gray-600">
+              Keberangkatan ideal maksimal 29 jamaah. Setiap kebutuhan diperhatikan, setiap tahapan ibadah menjadi lebih terarah.
+            </p>
 
-<!-- EMOTIONAL -->
-<div class="card">
-<h2>Ingin umroh, tapi masih ada yang mengganjal?</h2>
+            <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20ingin%20cek%20jadwal%20%26%20kuota%20umrah%20Jadiumrah"
+                 target="_blank" rel="noopener"
+                 onclick="track('Lead','hero')"
+                 class="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-6 py-3.5 text-base font-semibold text-white shadow-md transition hover:bg-brand-dark sm:w-auto">
+                Cek Jadwal &amp; Kuota
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.6L10.7 5.6a.75.75 0 1 1 1.06-1.06l4.95 4.93a.75.75 0 0 1 0 1.06l-4.95 4.93a.75.75 0 1 1-1.06-1.06l3.65-3.65H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd"/></svg>
+              </a>
+              <a href="#mengapa" class="focus-ring inline-flex w-full items-center justify-center rounded-xl border border-gray-200 px-6 py-3.5 text-base font-semibold text-charcoal transition hover:border-brand hover:text-brand sm:w-auto">
+                Pelajari Lebih Lanjut
+              </a>
+            </div>
 
-<div class="list-box"><span class="ic">😟</span><span>Takut berangkat sendirian, belum pernah ke luar negeri</span></div>
-<div class="list-box"><span class="ic">📄</span><span>Bingung urus paspor, visa, dan dokumen lainnya</span></div>
-<div class="list-box"><span class="ic">🕋</span><span>Khawatir salah tata cara ibadah di sana</span></div>
-<div class="list-box"><span class="ic">💸</span><span>Ragu dengan travel yang tidak jelas izinnya</span></div>
+            <p class="mt-4 text-sm text-gray-500">
+              Bukan sekadar berangkat bersama, tetapi berumrah dengan pendampingan yang lebih personal.
+            </p>
+          </div>
 
-<p style="margin-top:15px;">JadiUmrah hadir supaya niat baikmu tidak tertunda lagi.</p>
+          <!-- Visual -->
+          <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl">
+              <!-- TODO: ganti dengan foto jamaah Jadiumrah -->
+              <img src="assets/images/hero.jpg" alt="Jamaah Jadiumrah di pelataran Masjid Nabawi" class="aspect-[4/3] w-full object-cover" loading="eager">
+            </div>
 
-<!-- CTA 2 -->
-<a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20masih%20ragu%20dan%20ingin%20konsultasi%20dulu%20soal%20umroh" class="btn" onclick="track('Contact','konsultasi')">
-Konsultasi Dulu, Gratis →
-</a>
-</div>
+            <!-- Floating stat card -->
+            <div class="absolute -bottom-5 left-1/2 w-[88%] -translate-x-1/2 rounded-2xl border border-gray-100 bg-white p-4 shadow-lg sm:left-auto sm:right-6 sm:w-auto sm:translate-x-0">
+              <div class="flex items-center gap-4">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-light text-brand">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.1 9.1 0 0 0 3.74-.48 3 3 0 0 0-4.68-2.72m.94 3.2a8.9 8.9 0 0 1-.94 0m.94 0a9.1 9.1 0 0 1-.94 0M6 18.72a9.1 9.1 0 0 1-3.74-.48 3 3 0 0 1 4.68-2.72M6 18.72a9 9 0 0 0 12 0M12 12.75a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6-1.5a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM12 12.75a5.25 5.25 0 0 1 5.25 5.25v.75H6.75V18A5.25 5.25 0 0 1 12 12.75Z"/></svg>
+                </div>
+                <div class="text-left">
+                  <p class="text-2xl font-extrabold leading-none text-charcoal">Maks. 29</p>
+                  <p class="mt-1 text-xs font-medium text-gray-500">jamaah per keberangkatan</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<!-- SOLUSI -->
-<div class="card">
-<h2>Kenapa Berangkat Bersama JadiUmrah?</h2>
+        </div>
+      </div>
+    </section>
 
-<div class="list-box"><span class="ic">✅</span><span><b>Diurus dari awal</b><br>Paspor, visa, perlengkapan, sampai manasik, semua dipandu.</span></div>
-<div class="list-box"><span class="ic">✅</span><span><b>Hotel dekat Masjidil Haram</b><br>Hemat tenaga, lebih banyak waktu untuk ibadah.</span></div>
-<div class="list-box"><span class="ic">✅</span><span><b>Muthawif berpengalaman</b><br>Pembimbing ibadah mendampingi setiap rangkaian umroh.</span></div>
-<div class="list-box"><span class="ic">✅</span><span><b>Travel resmi &amp; berizin</b><br>Dikelola oleh Dreammecca, travel umroh berizin resmi.</span></div>
-</div>
+    <!-- ============================================================
+         VALUE PROPOSITION: Mengapa Memilih Kami?
+         ============================================================ -->
+    <section id="mengapa" class="border-t border-gray-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand">Mengapa Memilih Kami?</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">Grup kecil, perhatian lebih besar.</h2>
+          <p class="mt-4 text-base leading-relaxed text-gray-600">
+            Kami sengaja membatasi jumlah jamaah agar pembimbing dapat benar-benar hadir untuk Anda, bukan hanya untuk rombongan.
+          </p>
+        </div>
 
-<!-- LANGKAH -->
-<div class="card">
-<h2>3 Langkah Mudah Jadi Umroh</h2>
-<div class="steps">
-  <div class="step"><b>Chat &amp; konsultasi</b><small>Ceritakan rencanamu, kami bantu pilih jadwal &amp; paket yang pas.</small></div>
-  <div class="step"><b>Amankan seat</b><small>Bayar DP, dokumen kami bantu urus sampai beres.</small></div>
-  <div class="step"><b>Manasik &amp; berangkat</b><small>Ikut bimbingan manasik, lalu berangkat dengan tenang.</small></div>
-</div>
-</div>
+        <!-- 2x2 on tablet, 4 columns on desktop -->
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-<!-- TESTIMONI -->
-<div class="card">
-<h2>Apa Kata Jamaah?</h2>
+          <!-- a. Pemantauan Lebih Optimal -->
+          <article class="group rounded-2xl border border-gray-100 p-6 transition hover:border-brand/40 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.04 12.32a1 1 0 0 1 0-.64C3.42 7.51 7.36 4.5 12 4.5c4.64 0 8.57 3.01 9.96 7.18a1 1 0 0 1 0 .64C20.58 16.49 16.64 19.5 12 19.5c-4.64 0-8.57-3.01-9.96-7.18Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Pemantauan Lebih Optimal</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">
+              Dengan jumlah terbatas, pembimbing mengenal setiap jamaah dan memastikan tidak ada yang tertinggal atau terabaikan.
+            </p>
+          </article>
 
-<div class="slider">
-  <div class="slides" id="slides">
-    <img src="assets/images/testi1.png" alt="Testimoni jamaah 1">
-    <img src="assets/images/testi2.png" alt="Testimoni jamaah 2">
-    <img src="assets/images/testi3.png" alt="Testimoni jamaah 3">
-  </div>
-  <button class="nav prev" onclick="prevSlide()" aria-label="Sebelumnya">❮</button>
-  <button class="nav next" onclick="nextSlide()" aria-label="Berikutnya">❯</button>
-</div>
-<div class="dots" id="dots"></div>
+          <!-- b. Responsif Terhadap Kendala -->
+          <article class="group rounded-2xl border border-gray-100 p-6 transition hover:border-brand/40 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Responsif Terhadap Kendala</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">
+              Kebutuhan mendadak seperti kesehatan, logistik, atau pertanyaan ibadah dapat ditangani cepat tanpa antre panjang.
+            </p>
+          </article>
 
-<img src="assets/images/jamaah.jpg" class="hero-img" alt="Rombongan jamaah JadiUmrah">
+          <!-- c. Arahan Ibadah Jelas -->
+          <article class="group rounded-2xl border border-gray-100 p-6 transition hover:border-brand/40 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.04A7.5 7.5 0 0 0 4.5 4.5v13.5A7.5 7.5 0 0 1 12 19.54m0-13.5A7.5 7.5 0 0 1 19.5 4.5v13.5A7.5 7.5 0 0 0 12 19.54m0-13.5v13.5"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Arahan Ibadah Jelas</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">
+              Setiap tahapan manasik, thawaf, hingga sa'i dibimbing dengan tenang dan mudah diikuti, termasuk bagi pemula.
+            </p>
+          </article>
 
-<!-- CTA 3 -->
-<a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20ingin%20mengamankan%20seat%20umroh%20JadiUmrah" class="btn" onclick="track('Lead','testimoni')">
-Saya Mau Berangkat →
-</a>
-</div>
+          <!-- d. Bebas dari Rasa Kewalahan -->
+          <article class="group rounded-2xl border border-gray-100 p-6 transition hover:border-brand/40 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.49-2.1-4.5-4.69-4.5-1.93 0-3.59 1.13-4.31 2.73-.72-1.6-2.38-2.73-4.31-2.73C5.1 3.75 3 5.76 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Bebas dari Rasa Kewalahan</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">
+              Tidak ada rombongan besar yang membuat bingung. Perjalanan terasa lebih tertib, tenang, dan fokus pada ibadah.
+            </p>
+          </article>
 
-<!-- PACKAGE -->
-<div class="card package">
-<div class="badge">Paling Diminati</div>
-<h2>Paket Umroh JadiUmrah</h2>
+        </div>
+      </div>
+    </section>
 
-<!-- TODO: isi harga & durasi paket -->
-<div class="price">Mulai dari Rp ___ juta<small>Harga per orang · 9 hari</small></div>
+    <!-- ============================================================
+         TARGET AUDIENCE: Sangat Cocok Untuk
+         ============================================================ -->
+    <section id="cocok-untuk" class="border-t border-gray-100 bg-gray-50/60">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand">Sangat Cocok Untuk</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">Siapa pun yang ingin didampingi lebih dekat.</h2>
+        </div>
 
-<hr>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-<div class="inc">
-  <div>✔ Tiket pesawat PP</div>
-  <div>✔ Hotel dekat Masjidil Haram &amp; Masjid Nabawi</div>
-  <div>✔ Visa umroh &amp; asuransi perjalanan</div>
-  <div>✔ Makan 3x sehari</div>
-  <div>✔ Muthawif &amp; tour leader</div>
-  <div>✔ Perlengkapan umroh &amp; manasik</div>
-</div>
+          <!-- Jamaah Senior -->
+          <article class="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0v.75H4.5v-.75Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Jamaah Senior</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Ritme perjalanan yang tidak terburu-buru dan pendamping yang selalu dekat.</p>
+          </article>
 
-<a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20siap%20booking%20paket%20umroh%20JadiUmrah" class="btn gold" onclick="track('InitiateCheckout','paket')">
-Amankan Seat Sekarang →
-</a>
-<p class="note" style="color:#fff;opacity:.8">Seat terbatas setiap keberangkatan</p>
-</div>
+          <!-- Pasangan Muda -->
+          <article class="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.13A9.09 9.09 0 0 0 18 19.5c1.3 0 2.55-.27 3.68-.77a3 3 0 0 0-5.66-2.1M15 19.13v-.01A6.38 6.38 0 0 0 12.5 14a6.38 6.38 0 0 0-2.5.51M15 19.13A6.4 6.4 0 0 1 10 19.5a6.4 6.4 0 0 1-5-2.1m0 0A3 3 0 0 0 2.3 18.7 9.1 9.1 0 0 0 6 19.5c1.03 0 2.02-.17 2.94-.49M5 17.4a2.99 2.99 0 0 1 5-1.84M14.25 8.25a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0Zm5.25 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-12 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Pasangan Muda</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Momen ibadah berdua yang lebih khusyuk, dengan suasana grup yang akrab dan tertib.</p>
+          </article>
 
-<!-- FAQ -->
-<div class="card">
-<h2>Pertanyaan yang Sering Ditanyakan</h2>
+          <!-- Keluarga -->
+          <article class="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.95-8.95a1.13 1.13 0 0 1 1.6 0L21.75 12M4.5 9.75v10.13c0 .62.5 1.12 1.13 1.12h4.12v-4.88c0-.62.5-1.12 1.13-1.12h2.25c.62 0 1.12.5 1.12 1.13V21h4.13c.62 0 1.12-.5 1.12-1.13V9.75"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Keluarga</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Orang tua dan anak tetap dalam pantauan, kebutuhan tiap anggota keluarga diperhatikan.</p>
+          </article>
 
-<details>
-<summary>Belum punya paspor, bisa daftar?</summary>
-<p>Bisa. Tim kami akan memandu proses pembuatan paspor sampai selesai.</p>
-</details>
-<details>
-<summary>Berangkat sendiri, nanti dapat teman?</summary>
-<p>Tentu. Kamu akan tergabung dalam rombongan dan didampingi tour leader sepanjang perjalanan.</p>
-</details>
-<details>
-<summary>Bisa bayar bertahap?</summary>
-<p>Bisa. Amankan seat dengan DP, sisanya dicicil sampai sebelum keberangkatan. Detail skema bisa ditanyakan via WhatsApp.</p>
-</details>
-<details>
-<summary>Apakah ada bimbingan manasik?</summary>
-<p>Ada. Manasik diadakan sebelum keberangkatan agar jamaah paham tata cara umroh dengan benar.</p>
-</details>
-</div>
+          <!-- Baru Pertama Umrah -->
+          <article class="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.81 3.56A3 3 0 0 0 9.56 5c0 .83.67 1.5 1.5 1.5h.75v.75a3 3 0 0 0 3 3h.75a.75.75 0 0 1 .75.75v2.25H9.75a2.25 2.25 0 0 0-2.25 2.25V19M9.81 3.56A9 9 0 1 0 19.5 9.6M9.81 3.56A9 9 0 0 1 19.5 9.6m0 0h-1.75a.75.75 0 0 0-.75.75v1.5"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-charcoal">Baru Pertama Umrah</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Tidak perlu takut salah. Setiap langkah dijelaskan dan selalu ada yang bisa ditanya.</p>
+          </article>
 
-<footer>
-  JadiUmrah · Bagian dari Dreammecca<br>
-  &copy; <span id="year"></span> Semua hak dilindungi
-</footer>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- ============================================================
+         TRUST / SERVICE COMMITMENT
+         ============================================================ -->
+    <section id="komitmen" class="border-t border-gray-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
 
-<!-- STICKY CTA -->
-<div class="sticky">
-  <a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20mau%20tanya%20program%20umroh%20JadiUmrah" class="btn" onclick="track('Contact','sticky')">
-  💬 Chat WhatsApp Sekarang
-  </a>
-</div>
+          <!-- Copy -->
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-brand">Komitmen Layanan</p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
+              Kuota terbatas bukan kekurangan, melainkan standar layanan kami.
+            </h2>
+            <p class="mt-5 text-base leading-relaxed text-gray-600">
+              Kami menargetkan 25 jamaah per grup dan tidak pernah melebihi 29. Angka ini kami pilih dengan sadar: cukup untuk suasana kebersamaan, tetapi tetap kecil agar pembimbing mampu memberi perhatian satu per satu di lapangan.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-gray-600">
+              Hasilnya adalah pelayanan premium yang terasa nyata: respons cepat, koordinasi rapi, dan jamaah yang pulang dengan hati tenang.
+            </p>
 
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
+            <a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20layanan%20Jadiumrah"
+               target="_blank" rel="noopener"
+               onclick="track('Contact','komitmen')"
+               class="focus-ring mt-8 inline-flex items-center gap-2 text-base font-semibold text-brand hover:text-brand-dark">
+              Tanya tentang layanan kami
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.6L10.7 5.6a.75.75 0 1 1 1.06-1.06l4.95 4.93a.75.75 0 0 1 0 1.06l-4.95 4.93a.75.75 0 1 1-1.06-1.06l3.65-3.65H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
 
-function track(evt, pos){
-  if(typeof fbq === 'function'){ fbq('track', evt, {content_name: 'jadiumrah', position: pos}); }
-}
+          <!-- Commitment list -->
+          <div class="rounded-3xl border border-brand/20 bg-brand-light/50 p-6 sm:p-8">
+            <ul class="space-y-5">
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                  <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-charcoal">Rasio pembimbing yang sehat</p>
+                  <p class="mt-1 text-sm text-gray-600">Pembimbing dapat mengenal nama, kondisi, dan kebutuhan setiap jamaah.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                  <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-charcoal">Mobilitas lebih ringkas</p>
+                  <p class="mt-1 text-sm text-gray-600">Check-in, transportasi, dan perpindahan kota berjalan lebih cepat tanpa menunggu lama.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                  <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-charcoal">Ruang bertanya yang leluasa</p>
+                  <p class="mt-1 text-sm text-gray-600">Setiap pertanyaan ibadah mendapat jawaban, bukan tenggelam di tengah keramaian.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                  <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-charcoal">Komitmen angka yang jelas</p>
+                  <p class="mt-1 text-sm text-gray-600">Target 25 jamaah, maksimal 29. Tidak ada penambahan di luar batas tersebut.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-/* SLIDER */
-let index = 0;
-const slides = document.getElementById('slides');
-const total = slides.children.length;
-const dotsContainer = document.getElementById('dots');
-let autoSlide;
+        </div>
+      </div>
+    </section>
 
-for(let i=0;i<total;i++){
-  const dot = document.createElement('span');
-  dot.classList.add('dot');
-  dot.addEventListener('click', ()=>showSlide(i));
-  dotsContainer.appendChild(dot);
-}
+    <!-- ============================================================
+         BOTTOM CTA
+         ============================================================ -->
+    <section id="konsultasi" class="border-t border-gray-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="mx-auto max-w-3xl rounded-3xl border-2 border-brand/30 px-6 py-12 text-center sm:px-12">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand">Mulai Perjalanan Anda</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
+            Kuota setiap grup sangat terbatas demi kenyamanan Anda.
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-gray-600">
+            Konsultasikan rencana umrah Anda tanpa biaya. Tim kami siap membantu memilih jadwal yang paling sesuai.
+          </p>
+          <a href="https://wa.me/6281225740093?text=%5BLP-JADIUMRAH%5D%0AAssalamu'alaikum,%20saya%20ingin%20konsultasi%20umrah%20dengan%20Jadiumrah"
+             target="_blank" rel="noopener"
+             onclick="track('Lead','bottom')"
+             class="focus-ring mt-8 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-brand-dark sm:w-auto">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.2Z"/></svg>
+            Konsultasi Umrah Sekarang
+          </a>
+          <p class="mt-4 text-xs text-gray-500">Respon cepat via WhatsApp · Tanpa biaya konsultasi</p>
+        </div>
+      </div>
+    </section>
 
-function updateDots(){
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach(d=>d.classList.remove('active'));
-  dots[index].classList.add('active');
-}
+  </main>
 
-function showSlide(i){
-  index = i;
-  if(index >= total) index = 0;
-  if(index < 0) index = total - 1;
-  slides.style.transform = `translateX(-${index * 100}%)`;
-  updateDots();
-}
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="border-t border-gray-100 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <a href="#" class="flex items-center gap-2 focus-ring rounded-md" aria-label="Jadiumrah">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white font-bold text-xs">J</span>
+          <span class="text-base font-bold tracking-tight text-charcoal">Jadi<span class="text-brand">umrah</span></span>
+        </a>
 
-function nextSlide(){ showSlide(index + 1); }
-function prevSlide(){ showSlide(index - 1); }
-function startAuto(){ autoSlide = setInterval(nextSlide, 5000); }
-function stopAuto(){ clearInterval(autoSlide); }
+        <nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+          <a href="#mengapa" class="hover:text-brand">Mengapa Kami</a>
+          <a href="#cocok-untuk" class="hover:text-brand">Cocok Untuk</a>
+          <a href="#komitmen" class="hover:text-brand">Komitmen</a>
+          <a href="#konsultasi" class="hover:text-brand">Konsultasi</a>
+        </nav>
+      </div>
 
-let startX = 0;
-slides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; stopAuto(); }, {passive:true});
-slides.addEventListener('touchend', e=>{
-  const endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50) nextSlide();
-  else if(endX - startX > 50) prevSlide();
-  startAuto();
-});
+      <div class="mt-8 flex flex-col items-center justify-between gap-3 border-t border-gray-100 pt-6 text-xs text-gray-500 sm:flex-row">
+        <p>&copy; <span id="year"></span> Jadiumrah. Seluruh hak cipta dilindungi.</p>
+        <p>Bukan sekadar berangkat bersama, tetapi berumrah dengan pendampingan yang lebih personal.</p>
+      </div>
+    </div>
+  </footer>
 
-showSlide(0);
-startAuto();
-</script>
+  <script>
+    // Dynamic copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Meta Pixel event helper (no-op if Pixel not loaded)
+    function track(evt, pos) {
+      if (typeof fbq === 'function') {
+        fbq('track', evt, { content_name: 'jadiumrah', position: pos });
+      }
+    }
+  </script>
 
 </body>
 </html>

@@ -1,25 +1,27 @@
-# JadiUmrah Landing Page
+# Jadiumrah Landing Page
 
-Landing page statis untuk program **JadiUmrah** (bagian dari Dreammecca).
-Satu file `index.html`, tanpa build step. Cukup buka `index.html` di browser.
+Landing page statis untuk brand **Jadiumrah**.
+Satu file `index.html` (Tailwind CSS via CDN + Google Fonts Inter), tanpa build step. Cukup buka `index.html` di browser.
+
+## Positioning
+- Core message: "Bukan sekadar berangkat bersama, tetapi berumrah dengan pendampingan yang lebih personal."
+- USP: grup ideal 25 jamaah, maksimal 29.
+- Segmen: jamaah senior, pasangan muda, keluarga, baru pertama umrah.
 
 ## Struktur
 ```
 jadiumrah/
-├── index.html          # halaman utama (HTML + CSS + JS dalam satu file)
+├── index.html          # halaman utama
 └── assets/images/
-    ├── hero.jpg        # gambar hero (1200px, sudah dioptimasi)
-    ├── jamaah.jpg      # gambar rombongan
-    └── testi1-3.png    # screenshot testimoni
+    └── hero.jpg        # gambar hero (1200px, placeholder)
 ```
 
-## Yang perlu diisi / dicek sebelum live
-- [ ] **Harga paket** di section `PACKAGE` (cari `TODO: isi harga`).
-- [ ] **Nomor WhatsApp**: saat ini pakai nomor Dreammecca (`6281225740093`). Ganti semua `wa.me/...` kalau JadiUmrah pakai nomor sendiri.
-- [ ] **Meta Pixel ID**: saat ini pakai Pixel Dreammecca. Ganti di `fbq('init', ...)` kalau ada Pixel terpisah.
-- [ ] Ganti foto hero/testimoni dengan materi JadiUmrah.
+## Yang perlu dicek sebelum live
+- [ ] **Nomor WhatsApp**: saat ini pakai nomor Dreammecca (`6281225740093`). Ganti semua `wa.me/...` kalau Jadiumrah pakai nomor sendiri.
+- [ ] **Meta Pixel ID**: saat ini pakai Pixel Dreammecca. Ganti di `fbq('init', ...)` atau hapus bloknya.
+- [ ] Ganti `assets/images/hero.jpg` dengan foto Jadiumrah.
+- [ ] Ganti logo placeholder (huruf "J") dengan logo asli.
 
 ## Tracking
-Setiap tombol CTA memanggil `track(event, posisi)` yang mengirim event ke Meta Pixel:
-`Lead` (hero, testimoni), `Contact` (konsultasi, sticky), `InitiateCheckout` (paket).
-Semua link WhatsApp diawali tag `[LP-JADIUMRAH]` supaya mudah dibedakan di inbox.
+Setiap CTA memanggil `track(event, posisi)` ke Meta Pixel: `Lead` (hero, bottom), `Contact` (navbar, komitmen).
+Semua link WhatsApp diawali tag `[LP-JADIUMRAH]`.
