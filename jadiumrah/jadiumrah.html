@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jadiumrah | Umrah Tenang Menyenangkan</title>
+  <meta name="description" content="Jadiumrah: perjalanan umrah dengan jumlah jamaah yang terjaga dan pendampingan personal. Konsultasikan rencana umrah Anda via WhatsApp.">
+  <meta name="theme-color" content="#173E35">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Jadiumrah | Umrah Tenang Menyenangkan">
+  <meta property="og:description" content="Rombongan terjaga, pendampingan lebih personal.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Token: palet dari PDF branding Jadiumrah (tanpa emas), font Poppins ===== */
+    :root {
+      --green: #173E35; --green-900: #0F2C26; --green-800: #1C4A3F; --green-700: #24584B;
+      --cream: #F4F0E6; --sage: #54695E; --mint: #9BD9B8;
+      --ink: #1C2622; --muted: #5F6F68; --paper: #fff; --soft: #F6F7F4;
+      --wa: #25D366; --wa-dark: #1DB954;
+      --line: rgba(23,62,53,.12); --line-dark: rgba(244,240,230,.14);
+      --sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --r: 16px; --r-lg: 24px; --max: 1240px; --pad: clamp(1.25rem, 4vw, 2.5rem);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 90px; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+    body { margin: 0; font-family: var(--sans); font-size: 1rem; line-height: 1.6; color: var(--ink); background: var(--paper); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
+    p, ul, ol { margin: 0; } ul, ol { padding: 0; list-style: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
+    .visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .wrap { width: min(var(--max), 100% - 2 * var(--pad)); margin-inline: auto; }
+    .section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+    .section--soft { background: var(--soft); }
+    .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--green); max-width: 20ch; }
+    .sub { margin-top: 1rem; font-size: 1.05rem; color: var(--muted); max-width: 60ch; }
+
+    /* Tombol */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 3.4rem; padding: .9rem 1.75rem; border-radius: 999px;
+      font-weight: 700; text-decoration: none; border: 2px solid transparent; }
+    .btn svg { width: 1.25em; height: 1.25em; flex: none; }
+    .btn--wa { background: var(--wa); color: #fff; box-shadow: 0 0 0 0 rgba(37,211,102,.35), 0 10px 30px rgba(37,211,102,.35); }
+    .btn--wa:hover { background: var(--wa-dark); }
+    .btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+    .btn--outline:hover { background: rgba(255,255,255,.08); }
+    .btn--sm { min-height: 2.8rem; padding: .6rem 1.25rem; font-size: .95rem; }
+    @media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .18s, transform .18s; } .btn:active { transform: scale(.98); } }
+    .btn.is-inactive { background: transparent; color: rgba(255,255,255,.75); border: 2px dashed rgba(255,255,255,.45); box-shadow: none; cursor: not-allowed; }
+    .wa-note { display: none; margin-top: .75rem; font-size: .9rem; color: rgba(244,240,230,.75); }
+    .wa-note.is-visible { display: block; }
+
+    /* Header */
+    .hdr { position: sticky; top: 0; z-index: 30; background: rgba(15,44,38,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-dark); color: var(--cream); }
+    .hdr .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--cream); }
+    .brand__mark { font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; }
+    .brand__tag { font-size: .8rem; line-height: 1.25; color: rgba(244,240,230,.75); }
+    .brand__logo { height: 44px; width: auto; }
+    .brand--lg .brand__logo { height: 56px; }
+    .ftr__tag { margin-top: .9rem; font-weight: 600; color: #fff; }
+    .brand__tag { padding-left: .75rem; border-left: 1px solid rgba(244,240,230,.25); }
+    .hdr .btn--sm { white-space: nowrap; }
+    @media (max-width: 560px) { .brand__tag { display: none; } .hdr .btn--sm { padding: .55rem 1rem; font-size: .88rem; } }
+
+    /* Hero */
+    .hero { background: radial-gradient(120% 90% at 85% 10%, var(--green-800) 0%, var(--green) 45%, var(--green-900) 100%); color: var(--cream); padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(6rem, 10vw, 8.5rem); }
+    .hero__grid { display: grid; gap: 3rem; align-items: center; }
+    .hero__grid > * { min-width: 0; }
+    @media (min-width: 960px) { .hero__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 4rem; } }
+    .pill { display: inline-flex; align-items: center; padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid rgba(244,240,230,.35); background: rgba(255,255,255,.07); color: var(--cream); font-size: .9rem; font-weight: 600; }
+    .hero h1 { margin-top: 1.5rem; font-size: clamp(2.35rem, 8vw, 5.5rem); line-height: 1.0; color: #fff; }
+    .hero h1 .line { display: block; }
+    .hero__support { margin-top: 1.25rem; font-size: 1.2rem; font-weight: 600; color: var(--mint); }
+    .hero__desc { margin-top: .9rem; font-size: 1.1rem; color: rgba(244,240,230,.85); max-width: 56ch; }
+    .chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+    .chip { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem 1rem; border-radius: 999px; border: 1px solid rgba(244,240,230,.28); font-size: .92rem; font-weight: 600; }
+    .chip svg { width: 1em; height: 1em; color: var(--mint); }
+    .infocard { margin-top: 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: center; padding: 1.25rem 1.5rem; border-radius: var(--r); background: rgba(255,255,255,.06); border: 1px solid rgba(244,240,230,.14); }
+    .infocard__k { text-align: center; }
+    .infocard__k small { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(244,240,230,.7); }
+    .infocard__k strong { display: block; font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1.2; margin-top: .25rem; }
+    .infocard p strong { color: #fff; }
+    .infocard p { color: rgba(244,240,230,.85); font-size: .98rem; }
+    @media (max-width: 480px) { .infocard { grid-template-columns: 1fr; } .infocard__k { text-align: left; } }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.75rem; }
+    .ticks { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.5rem; font-size: .92rem; color: rgba(244,240,230,.85); }
+    .ticks li::before { content: "✓"; color: var(--mint); font-weight: 800; margin-right: .5rem; }
+    .hero__visual { position: relative; }
+    .hero__visual img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: var(--r-lg); box-shadow: 0 30px 60px rgba(0,0,0,.35); background: var(--green-800); }
+    .hero__visual figcaption { margin-top: .6rem; font-size: .8rem; color: rgba(244,240,230,.6); }
+    @media (max-width: 480px) { .hero__actions .btn { width: 100%; } .hero__visual img { aspect-ratio: 4/3; } }
+
+    /* Kartu overlap */
+    .overlap { margin-top: clamp(-4rem, -7vw, -5.5rem); position: relative; z-index: 2; }
+    .cards4 { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .cards4 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .cards4 { grid-template-columns: repeat(4, 1fr); } }
+    .card { background: var(--paper); border-radius: var(--r); padding: 1.4rem; box-shadow: 0 12px 40px rgba(15,44,38,.10); border: 1px solid var(--line); }
+    .card__ic { width: 2.6rem; height: 2.6rem; border-radius: 12px; background: var(--soft); color: var(--green); display: grid; place-items: center; margin-bottom: .9rem; }
+    .card__ic svg { width: 1.3rem; height: 1.3rem; }
+    .card h3 { font-size: 1.05rem; color: var(--green); }
+    .card p { margin-top: .35rem; font-size: .93rem; color: var(--muted); }
+
+    /* Grid daftar (Tenang/Menyenangkan) */
+    .grid2 { display: grid; gap: 1rem; margin-top: 2rem; }
+    @media (min-width: 800px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+    .item { display: grid; grid-template-columns: 2rem 1fr; gap: .9rem; align-items: start; padding: 1.1rem 1.25rem; border-radius: 14px; background: var(--paper); border: 1px solid var(--line); }
+    .item::before { content: ""; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--green); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23F4F0E6' d='M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z'/%3E%3C/svg%3E"); background-size: 1rem; background-repeat: no-repeat; background-position: center; margin-top: .1rem; }
+    .item strong { display: block; color: var(--green); font-weight: 700; }
+    .item span { font-size: .93rem; color: var(--muted); }
+    .grid2__head { grid-column: 1 / -1; font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); margin-top: .5rem; }
+    .grid2__head:first-child { margin-top: 0; }
+    .bar { margin-top: 1.25rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; padding: 1.25rem 1.5rem; border-radius: var(--r); background: var(--green); color: var(--cream); }
+    .bar__ic { width: 3rem; height: 3rem; border-radius: 12px; background: rgba(255,255,255,.08); display: grid; place-items: center; color: var(--mint); }
+    .bar__ic svg { width: 1.4rem; height: 1.4rem; }
+    .bar strong { display: block; color: #fff; }
+    .bar span { font-size: .93rem; color: rgba(244,240,230,.8); }
+
+    /* Kartu bernomor */
+    .numcards { display: grid; gap: 1rem; margin-top: 2rem; }
+    @media (min-width: 800px) { .numcards { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .numcards--3 { grid-template-columns: repeat(3, 1fr); } }
+    .numcard { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 1.6rem; }
+    .numcard--dark { background: var(--green); color: var(--cream); border-color: transparent; }
+    .numcard__n { font-size: .8rem; font-weight: 800; letter-spacing: .14em; color: var(--sage); }
+    .numcard--dark .numcard__n { color: var(--mint); }
+    .numcard h3 { margin-top: .5rem; font-size: 1.25rem; color: var(--green); }
+    .numcard--dark h3 { color: #fff; }
+    .numcard p { margin-top: .5rem; font-size: .95rem; color: var(--muted); }
+    .numcard--dark p { color: rgba(244,240,230,.82); }
+
+    /* Langkah */
+    .steps { display: grid; gap: 1rem; margin-top: 2rem; }
+    @media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    .step { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 1.6rem; }
+    .step__n { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--green); font-weight: 800; margin-bottom: 1rem; }
+    .step h3 { font-size: 1.2rem; color: var(--green); }
+    .step p { margin-top: .5rem; font-size: .95rem; color: var(--muted); }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin-top: 2rem; display: grid; gap: .75rem; }
+    .faq__item { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+    .faq__item h3 { font-size: 1rem; }
+    .faq__t { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; text-align: left; font-weight: 700; color: var(--green); border-radius: 14px; }
+    .faq__t::after { content: "+"; flex: none; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--green); font-size: 1.2rem; font-weight: 700; }
+    .faq__t[aria-expanded="true"]::after { content: "–"; }
+    .faq__p { padding: 0 1.25rem 1.2rem; color: var(--muted); font-size: .95rem; }
+    .faq__p[hidden] { display: none; }
+
+    /* Panel CTA */
+    .panel { background: radial-gradient(100% 120% at 50% 0%, var(--green-800) 0%, var(--green) 50%, var(--green-900) 100%); color: var(--cream); border-radius: var(--r-lg); padding: clamp(2.5rem, 6vw, 4.5rem) var(--pad); text-align: center; }
+    .panel h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); color: #fff; max-width: 22ch; margin-inline: auto; }
+    .panel p { margin-top: 1rem; max-width: 56ch; margin-inline: auto; color: rgba(244,240,230,.85); }
+    .panel .btn { margin-top: 1.75rem; min-width: min(100%, 360px); }
+    .panel small { display: block; margin-top: 1rem; font-size: .85rem; color: rgba(244,240,230,.65); }
+
+    /* Footer */
+    .ftr { background: var(--green-900); color: rgba(244,240,230,.85); padding: 3.5rem 0 2rem; }
+    .ftr__grid { display: grid; gap: 2rem; }
+    @media (min-width: 800px) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+    .ftr h4 { margin: 0 0 .75rem; font-size: 1rem; color: #fff; }
+    .ftr li { padding: .2rem 0; font-size: .95rem; }
+    .ftr a { color: rgba(244,240,230,.9); text-decoration: none; }
+    .ftr a:hover { color: #fff; }
+    .ftr .pending { font-size: .92rem; color: rgba(244,240,230,.6); }
+    .ftr [hidden] { display: none; }
+    .ftr__bottom { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); font-size: .85rem; color: rgba(244,240,230,.6); display: grid; gap: .4rem; }
+    .ftr__legal { white-space: pre-line; }
+    .ftr .brand__mark { color: #fff; }
+    .ftr .brand__tag { color: rgba(244,240,230,.7); }
+    .ftr__addr { margin-top: .75rem; white-space: pre-line; font-size: .95rem; }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Jadiumrah, kembali ke atas">
+      <img class="brand__logo" data-logo src="assets/images/logo-cream.png" alt="Jadiumrah" width="788" height="245">
+      <span class="brand__tag">Umrah Tenang<br>Menyenangkan</span>
+    </a>
+    <a class="btn btn--wa btn--sm" href="#konsultasi" data-wa>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.2Z"/></svg>
+      Chat Admin
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="pill">Rombongan terjaga · Pendampingan personal · Ramah keluarga</span>
+        <h1 id="h1"><span class="line">Umrah Tenang</span><span class="line">Menyenangkan</span></h1>
+        <p class="hero__support">Rombongan terjaga, pendampingan lebih personal.</p>
+        <p class="hero__desc">Jalani perjalanan ibadah dengan arahan yang jelas, pendampingan yang dekat, dan perhatian yang terjaga. Bersama Jadiumrah, setiap jamaah mendapat ruang untuk merasa lebih tenang dan nyaman.</p>
+
+        <ul class="chips" aria-label="Ringkasan pendekatan">
+          <li class="chip"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="4"/></svg>Pendamping dikenalkan sejak awal</li>
+          <li class="chip"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="4"/></svg>Arahan di setiap tahapan</li>
+          <li class="chip"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="4"/></svg>Ritme yang mempertimbangkan jamaah</li>
+        </ul>
+
+        <div class="infocard">
+          <div class="infocard__k"><small>Pendekatan kami</small><strong>Lebih personal</strong></div>
+          <p><strong>Kami menjaga <span data-group-size>jumlah jamaah dalam setiap rombongan</span></strong> agar tim punya ruang untuk mengenali, mendampingi, dan merespons kebutuhan setiap jamaah.</p>
+        </div>
+
+        <div class="hero__actions">
+          <a class="btn btn--wa" href="#konsultasi" data-wa>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.2Z"/></svg>
+            Konsultasikan Rencana Umrah
+          </a>
+          <a class="btn btn--outline" href="#pendampingan">Kenali Pendampingan Kami</a>
+        </div>
+        <p class="wa-note" data-wa-note>Kanal konsultasi WhatsApp sedang disiapkan dan akan segera aktif di halaman ini.</p>
+
+        <ul class="ticks" data-legal-ticks>
+          <li>Konsultasi tanpa biaya</li>
+          <li>Tidak ada pembayaran di halaman ini</li>
+        </ul>
+      </div>
+
+      <figure class="hero__visual">
+        <img src="assets/images/keluarga-kabah.jpg" width="1000" height="1333" alt="Keluarga jamaah Jadiumrah, orang tua bersama tiga anak, berfoto di depan Ka'bah." fetchpriority="high">
+        <figcaption>Dokumentasi perjalanan bersama Jadiumrah.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 4 KARTU OVERLAP: manfaat rombongan terjaga ===== -->
+  <section class="overlap" id="pendampingan" aria-labelledby="h-pendampingan">
+    <div class="wrap">
+      <h2 id="h-pendampingan" class="visually-hidden">Ada yang mendampingi di setiap tahapan</h2>
+      <div class="cards4">
+        <div class="card">
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 10h8M8 14h5M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4V6Z"/></svg></div>
+          <h3>Mudah bertanya</h3>
+          <p>Pertanyaan tidak perlu menunggu lama, arahan disampaikan dengan tenang ke setiap orang.</p>
+        </div>
+        <div class="card">
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+          <h3>Tim mengenali kebutuhan Anda</h3>
+          <p>Pendamping sempat mengenal nama, kondisi, dan kebutuhan jamaah.</p>
+        </div>
+        <div class="card">
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h3>Perpindahan terkoordinasi</h3>
+          <p>Jadwal, titik kumpul, dan pengecekan jamaah berjalan konsisten.</p>
+        </div>
+        <div class="card">
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></div>
+          <h3>Tahu siapa yang dihubungi</h3>
+          <p>Pendamping dikenalkan sejak awal, lengkap dengan cara menghubunginya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TENANG & MENYENANGKAN ===== -->
+  <section class="section" id="pengalaman" aria-labelledby="h-pengalaman">
+    <div class="wrap">
+      <p class="eyebrow">Pengalaman yang ingin kami hadirkan</p>
+      <h2 class="h2" id="h-pengalaman">Tahu apa yang perlu dilakukan, siapa yang mendampingi, dan ke mana meminta bantuan.</h2>
+      <p class="sub">Tenang melalui pendampingan personal dan arahan yang jelas. Menyenangkan melalui suasana hangat, ritme perjalanan yang nyaman, dan pengalaman berkesan.</p>
+
+      <div class="grid2">
+        <p class="grid2__head">Tenang</p>
+        <div class="item"><div><strong>Pembekalan sebelum keberangkatan</strong><span>Tahapan perjalanan dan ibadah dijelaskan lebih dulu.</span></div></div>
+        <div class="item"><div><strong>Arahan selama perjalanan dan ibadah</strong><span>Disampaikan pada setiap tahapan oleh pendamping.</span></div></div>
+        <div class="item"><div><strong>Pendamping yang dikenalkan kepada jamaah</strong><span>Anda tahu siapa yang membantu dan cara menghubunginya.</span></div></div>
+        <div class="item"><div><strong>Jadwal dan titik kumpul yang jelas</strong><span>Informasi waktu dan tempat disampaikan konsisten.</span></div></div>
+        <p class="grid2__head">Menyenangkan</p>
+        <div class="item"><div><strong>Suasana yang hangat dan ramah</strong><span>Tim menyapa, mendengarkan, dan membuat nyaman bertanya.</span></div></div>
+        <div class="item"><div><strong>Ritme yang mempertimbangkan kondisi jamaah</strong><span>Agenda disusun dengan memperhatikan kondisi rombongan.</span></div></div>
+        <div class="item"><div><strong>Waktu istirahat yang diperhatikan</strong><span>Ada ruang memulihkan tenaga di antara rangkaian ibadah.</span></div></div>
+        <div class="item"><div><strong>Ziarah dan kepulangan yang berkesan</strong><span>Penjelasan saat ziarah dan perhatian hingga kepulangan.</span></div></div>
+      </div>
+
+      <div class="bar">
+        <div class="bar__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><strong>Rincian pelayanan tiap keberangkatan dikonfirmasi tim.</strong><span>Jadwal, fasilitas, dan biaya disampaikan saat konsultasi, bukan di halaman ini.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNTUK SIAPA ===== -->
+  <section class="section section--soft" id="untuk-siapa" aria-labelledby="h-who">
+    <div class="wrap">
+      <p class="eyebrow">Untuk perjalanan ibadah Anda dan keluarga</p>
+      <h2 class="h2" id="h-who">Kebutuhan yang berbeda, perhatian yang menyesuaikan.</h2>
+      <div class="numcards numcards--3">
+        <div class="numcard numcard--dark"><p class="numcard__n">01</p><h3>Pertama kali umrah</h3><p>Membutuhkan penjelasan dan arahan yang mudah diikuti, serta pendamping yang mudah ditemui.</p></div>
+        <div class="numcard"><p class="numcard__n">02</p><h3>Jamaah senior</h3><p>Membutuhkan pembicaraan tentang kondisi, tempo perjalanan, dan bantuan yang tersedia sejak awal.</p></div>
+        <div class="numcard"><p class="numcard__n">03</p><h3>Keluarga dan pasangan</h3><p>Membutuhkan pengaturan yang jelas dan perhatian pada kebutuhan masing-masing anggota.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALUR ===== -->
+  <section class="section" id="alur" aria-labelledby="h-alur">
+    <div class="wrap">
+      <p class="eyebrow">Dari persiapan hingga kepulangan</p>
+      <h2 class="h2" id="h-alur">Didampingi dari awal sampai akhir.</h2>
+      <ol class="steps">
+        <li class="step"><div class="step__n">1</div><h3>Sebelum berangkat</h3><p>Mengenali kebutuhan jamaah, memperkenalkan pendamping, dan memberikan pembekalan.</p></li>
+        <li class="step"><div class="step__n">2</div><h3>Selama perjalanan</h3><p>Memberikan arahan, memantau keberadaan jamaah, dan menindaklanjuti kebutuhan.</p></li>
+        <li class="step"><div class="step__n">3</div><h3>Saat kepulangan</h3><p>Mendampingi sampai titik akhir layanan yang disepakati dan mendengarkan masukan jamaah.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--soft" id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2" id="h-faq">Yang sering ditanyakan calon jamaah.</h2>
+      <div class="faq">
+        <div class="faq__item"><h3><button class="faq__t" type="button" id="q1" aria-expanded="false" aria-controls="a1">Cocok untuk yang baru pertama kali umrah?</button></h3>
+          <div class="faq__p" id="a1" role="region" aria-labelledby="q1" hidden>Ya. Ada pembekalan sebelum berangkat, arahan di setiap tahapan, dan pendamping yang dikenalkan sejak awal. Pertanyaan apa pun boleh disampaikan sejak konsultasi pertama.</div></div>
+        <div class="faq__item"><h3><button class="faq__t" type="button" id="q2" aria-expanded="false" aria-controls="a2">Bagaimana bentuk pendampingannya?</button></h3>
+          <div class="faq__p" id="a2" role="region" aria-labelledby="q2" hidden>Sebelum berangkat: pembekalan dan perkenalan pendamping. Selama perjalanan: arahan, pemantauan, dan tindak lanjut kebutuhan. Saat kepulangan: didampingi sampai titik akhir layanan yang disepakati. Rincian per keberangkatan dikonfirmasi tim.</div></div>
+        <div class="faq__item"><h3><button class="faq__t" type="button" id="q3" aria-expanded="false" aria-controls="a3">Bisa berangkat bersama orang tua?</button></h3>
+          <div class="faq__p" id="a3" role="region" aria-labelledby="q3" hidden>Bisa. Sampaikan kondisi, tempo yang nyaman, dan bantuan yang dibutuhkan sejak konsultasi, agar tim bisa menjelaskan bentuk bantuan yang tersedia pada keberangkatan yang Anda pilih.</div></div>
+        <div class="faq__item"><h3><button class="faq__t" type="button" id="q4" aria-expanded="false" aria-controls="a4">Bagaimana tahu jadwal, fasilitas, dan biaya?</button></h3>
+          <div class="faq__p" id="a4" role="region" aria-labelledby="q4" hidden>Berbeda untuk tiap keberangkatan, jadi tidak ditampilkan di halaman ini. Minta informasi terbaru dan konfirmasi tertulis kepada tim saat konsultasi.</div></div>
+        <div class="faq__item"><h3><button class="faq__t" type="button" id="q5" aria-expanded="false" aria-controls="a5">Bagaimana cara mulai berkonsultasi?</button></h3>
+          <div class="faq__p" id="a5" role="region" aria-labelledby="q5" hidden>Klik tombol konsultasi di halaman ini, lalu ceritakan rencana keberangkatan, siapa yang ikut, dan kebutuhan khusus bila ada.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL CTA ===== -->
+  <section class="section" id="konsultasi" aria-labelledby="h-cta">
+    <div class="wrap">
+      <div class="panel">
+        <h2 id="h-cta">Mari bicarakan rencana umrah Anda</h2>
+        <p>Ceritakan rencana keberangkatan dan kebutuhan Anda atau keluarga. Tim Jadiumrah siap membantu menjelaskan pilihan perjalanan serta bentuk pendampingannya.</p>
+        <a class="btn btn--wa" href="#konsultasi" data-wa>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.2Z"/></svg>
+          Mulai Konsultasi
+        </a>
+        <p class="wa-note" data-wa-note>Kanal konsultasi WhatsApp sedang disiapkan dan akan segera aktif di halaman ini.</p>
+        <small>Tidak ada pembayaran di halaman ini. Anda hanya terhubung ke tim Jadiumrah.</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="brand brand--lg" href="#top"><img class="brand__logo" data-logo src="assets/images/logo-cream.png" alt="Jadiumrah" width="788" height="245"></a>
+        <p class="ftr__tag">Umrah Tenang Menyenangkan</p>
+        <p class="ftr__addr" data-footer-address hidden></p>
+        <p class="pending" data-footer-pending>Informasi kontak, alamat, dan media sosial akan dilengkapi.</p>
+      </div>
+      <div data-footer="contact" hidden><h4>Hubungi kami</h4><ul data-footer-list></ul></div>
+      <div data-footer="social" hidden><h4>Ikuti kami</h4><ul data-footer-list></ul></div>
+    </div>
+    <div class="ftr__bottom">
+      <p class="ftr__legal" data-footer-legal></p>
+      <p>&copy; <span data-year></span> Jadiumrah. Umrah Tenang Menyenangkan.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== KONFIGURASI JADIUMRAH: ubah data bisnis di sini ===== */
+  var JADIUMRAH_CONFIG = {
+    whatsapp: {
+      number: "6281110066986",   /* format 62xxxxxxxxxx tanpa + dan spasi. Kosong = CTA nonaktif */
+      message: "Assalamualaikum, saya ingin berkonsultasi tentang rencana umrah bersama Jadiumrah."
+    },
+    contact: { phone: "", email: "" },
+    social: { instagram: "", tiktok: "", facebook: "", youtube: "", website: "" },  /* URL lengkap */
+    address: "",                                   /* boleh beberapa baris dengan \n */
+    legal: { companyName: "PT. Globalindo Sukses Maksima", licenseNumber: "02200064127450010", notes: "" },
+    logoUrl: "",                                   /* opsional: URL HTTPS logo krem; kosong = pakai assets/images/logo-cream.png */
+    groupSize: { target: 25, max: 29, confirmed: false },  /* angka tampil hanya jika confirmed: true */
+    imageSources: {
+      "keluarga-kabah.jpg": "Dokumentasi Jadiumrah (IMG_1160), Masjidil Haram",
+      "og-image.jpg": "Potongan dari dokumentasi Jadiumrah (IMG_1155)",
+      "logo-cream.png": "Logo resmi Jadiumrah versi krem dari pemilik, margin dipotong"
+    }
+  };
+
+  (function () {
+    var cfg = JADIUMRAH_CONFIG;
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+
+    $$('[data-year]').forEach(function (e) { e.textContent = new Date().getFullYear(); });
+
+    /* WhatsApp */
+    var digits = (cfg.whatsapp.number || '').replace(/\D/g, '');
+    var active = digits.length >= 8;
+    var href = 'https://wa.me/' + digits + '?text=' + encodeURIComponent(cfg.whatsapp.message || '');
+    $$('a[data-wa]').forEach(function (a) {
+      if (active) { a.href = href; a.target = '_blank'; a.rel = 'noopener'; return; }
+      a.classList.add('is-inactive'); a.setAttribute('aria-disabled', 'true');
+      a.title = 'Kanal konsultasi WhatsApp sedang disiapkan';
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!a.closest('#konsultasi')) $('#konsultasi').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+    });
+    $$('[data-wa-note]').forEach(function (n) { n.classList.toggle('is-visible', !active); });
+
+    /* Kapasitas rombongan */
+    if (cfg.groupSize && cfg.groupSize.confirmed) {
+      $$('[data-group-size]').forEach(function (e) {
+        e.textContent = 'setiap rombongan di sekitar ' + cfg.groupSize.target + ' jamaah dan tidak lebih dari ' + cfg.groupSize.max + ' jamaah';
+      });
+    }
+
+    /* Logo: isi cfg.logoUrl untuk mengganti path bawaan assets/images/logo-cream.png */
+    if (cfg.logoUrl) { $$('[data-logo]').forEach(function (img) { img.src = cfg.logoUrl; }); }
+
+    /* Footer */
+    function fill(key, items) {
+      var col = $('[data-footer="' + key + '"]'); if (!col) return false;
+      items = items.filter(Boolean); if (!items.length) return false;
+      var ul = $('[data-footer-list]', col);
+      items.forEach(function (i) {
+        var li = document.createElement('li'), a = document.createElement('a');
+        a.textContent = i[0]; a.href = i[1];
+        if (/^https?:/.test(i[1])) { a.target = '_blank'; a.rel = 'noopener'; }
+        li.appendChild(a); ul.appendChild(li);
+      });
+      col.hidden = false; return true;
+    }
+    var c = cfg.contact || {}, s = cfg.social || {}, shown = 0;
+    shown += fill('contact', [
+      c.phone ? ['Telepon ' + c.phone, 'tel:' + c.phone.replace(/[^\d+]/g, '')] : null,
+      c.email ? [c.email, 'mailto:' + c.email] : null,
+      active ? ['WhatsApp', href] : null
+    ]) ? 1 : 0;
+    var names = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', youtube: 'YouTube', website: 'Situs web' };
+    shown += fill('social', Object.keys(names).map(function (k) { return s[k] ? [names[k], s[k]] : null; })) ? 1 : 0;
+    var addr = $('[data-footer-address]');
+    if (cfg.address) { addr.textContent = cfg.address; addr.hidden = false; shown++; }
+    if (shown) $('[data-footer-pending]').hidden = true;
+    var l = cfg.legal || {};
+    $('[data-footer-legal]').textContent = [l.companyName, l.licenseNumber ? 'Izin PPIU: ' + l.licenseNumber : '', l.notes].filter(Boolean).join('\n');
+    var ticks = $('[data-legal-ticks]');
+    if (ticks) {
+      [l.licenseNumber ? 'Izin PPIU ' + l.licenseNumber : '', l.companyName].filter(Boolean).reverse().forEach(function (t) {
+        var li = document.createElement('li'); li.textContent = t; ticks.insertBefore(li, ticks.firstChild);
+      });
+    }
+
+    /* FAQ */
+    $$('.faq__t').forEach(function (b) {
+      var p = document.getElementById(b.getAttribute('aria-controls'));
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') === 'true';
+        b.setAttribute('aria-expanded', open ? 'false' : 'true'); p.hidden = open;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
