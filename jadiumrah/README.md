@@ -82,3 +82,14 @@ Catatan: foto menampilkan wajah jamaah. Pastikan izin penggunaan dari yang bersa
 - [ ] **Domain/URL final** halaman untuk `og:url`/canonical (belum ditambahkan karena belum diketahui).
 
 Belum ada di halaman dan sengaja tidak dibuat: testimoni, rating, jumlah alumni, harga, jadwal, fasilitas, kartu paket, formulir, script tracking.
+
+## Landing page promo (hard selling), folder `promo/`
+Tiga halaman program 2027 yang dibangun dari script iklan pemilik dengan `promo/build.py`:
+
+| File | Program | Tanggal | Penerbangan | Harga mulai |
+|---|---|---|---|---|
+| `umroh-hemat-januari-2027.html` | Umroh Hemat, 9 hari | 12, 19, 26 Jan 2027 | transit: Qatar Airways / Etihad / Oman Air | Rp32,9 jt |
+| `umroh-awal-ramadan-2027.html` | Umroh Awal Ramadan, 9 hari | 2, 9 Feb 2027 | Saudia Airlines direct | Rp35,9 jt |
+| `umroh-syawal-2027.html` | Umroh Syawal, 9 hari | transit 15, 20 Mar · direct 12, 18 Mar 2027 | Qatar/Emirates · Saudia/Garuda | Rp30,9 jt · Rp35,9 jt |
+
+Cara build: `python3 promo/build.py <folder_gambar> <folder_output>`. Versi di repo memakai path gambar relatif (foto jamaah tidak disimpan di repo); versi output menanamkan foto sebagai base64 JPEG/PNG dan siap diimpor ke Scalev. Setiap tombol tanggal membuka WhatsApp dengan pesan yang sudah menyebut program dan tanggalnya. Tidak ada countdown, sisa seat, atau fasilitas yang tidak disebut di script; harga selalu ditulis "mulai dari" dan diarahkan ke konfirmasi admin.
